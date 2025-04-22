@@ -1,18 +1,27 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('git checkout') {
             steps {
+                git branch: 'develop', url: 'https://github.com/cloud-blitz/angular-java.git'
                 //
             }
         }
-        stage('Test') {
+        stage('build') {
             steps {
+                echo "build"
                 //
             }
         }
-        stage('Deploy') {
+        stage('test') {
             steps {
+                echo "test"
+                //
+            }
+        }    
+        stage('deploy') {
+            steps {
+                echo "deploy"
                 //
             }
         }
