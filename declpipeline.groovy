@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'my-jenkins' }
+    agent { label 'Built-In Node' }
     stages {
         stage('git checkout') {
             steps {
