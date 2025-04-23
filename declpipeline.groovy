@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git branch: 'develop', url: 'https://github.com/cloud-blitz/angular-java.git'
+                git branch: 'main', url: 'https://github.com/Anilbamnote/student-ui-app.git'
                 //
             }
         }
         stage('build') {
             steps {
-                echo "build"
+                sh 'mvn clean package'
                 //
             }
         }
