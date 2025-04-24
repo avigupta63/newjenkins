@@ -19,6 +19,16 @@ pipeline {
             sh '/opt/maven/bin/mvn sonar:sonar'
             }
             }
+        }
+        stage('quality gate') {
+            steps {
+                timeout(10) {
+                
+            }
+              waitForQualityGate true
+                
+                
+            }
         }    
         stage('deploy') {
             steps {
