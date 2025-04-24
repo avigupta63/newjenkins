@@ -8,14 +8,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh ''' cd terraform pipeline/terraform/eks
+                sh ''' cd terraform/eks
                     terraform init
                     terraform plan'''
             }
         }
         stage('Deploy') {
             steps {
-                sh ''' terraform pipeline/terraform/eks
+                sh ''' cd terraform/eks
                      terraform init
                     terraform apply --auto-approve'''
             }
