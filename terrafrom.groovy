@@ -8,15 +8,15 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh ''' cd /terraform/eks
+                sh ''' cd terraform pipeline/terraform/eks
                     terraform init
                     terraform plan'''
             }
         }
         stage('Deploy') {
             steps {
-                sh ''' cd /terraform/eks
-                    terraform init
+                sh ''' terraform pipeline/terraform/eks
+                     terraform init
                     terraform apply --auto-approve'''
             }
         }
