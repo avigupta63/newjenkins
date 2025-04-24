@@ -29,10 +29,16 @@ pipeline {
                 
                 
             }
-        }    
-        stage('deploy') {
+        }
+        stage('artifact') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://47.128.249.207:8080/')], contextPath: '/', war: '**/*.war'
+                sh 'aws s3 cp target/studentapp.war s3://mywasbuket321'
+                
+            }
+        }    
+       //stage('deploy') {
+          //  steps {
+              //  deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://47.128.249.207:8080/')], contextPath: '/', war: '**/*.war'
                 //
             }
         }
